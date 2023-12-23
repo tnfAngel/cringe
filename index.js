@@ -272,6 +272,17 @@ function isParentSameOrigin() {
 	}
 }
 
+const pedroSanchez = [
+	'Pedro Sánchez quiere conocerte',
+	'Laura a 3km de ti',
+	'Google quiere saber tu ubicación',
+	'Juniors de mierda y perras nalgonas al alcance de cualquier',
+	'Generador de delirios comprar ahora',
+	'Mi gato en huelga',
+	'Ayuda no se qué hago con mi vida',
+	'Descargue RAM ilimitada AHORA'
+];
+
 setInterval(() => {
 	document.body.style.backgroundColor = `#${Math.floor(
 		Math.random() * 16777215
@@ -280,17 +291,9 @@ setInterval(() => {
 
 setInterval(() => {
 	M.toast({
-		html: random([
-			'Pedro Sánchez quiere conocerte',
-			'Laura a 3km de ti',
-			'Google quiere saber tu ubicación',
-			'Juniors de mierda y perras nalgonas al alcance de cualquier',
-			'Generador de delirios comprar ahora',
-			'Mi gato en huelga',
-			'Ayuda no se qué hago con mi vida',
-			'Descargue RAM ilimitada AHORA'
-		]),
+		html: random(pedroSanchez),
 		classes: 'pedro-sanchez',
 		displayLength: 600
 	});
+	document.title = `(${~~(Math.random() * 1000)}) ${random(pedroSanchez)}`;
 }, 150);
