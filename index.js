@@ -23,7 +23,7 @@ const WINDOW_COUNT = 20;
 // https://github.com/Mrgaton
 const music = ['funkytown', 'uefa', 'fica', 'outro', 'bbs', 'xokas'];
 
-const random = arr => {
+const random = (arr) => {
 	return arr[Math.floor(Math.random() * arr.length)];
 };
 
@@ -33,7 +33,10 @@ const randomAudio = () => {
 };
 
 window.onload = () => {
-	if ((window.opener && isParentSameOrigin()) || window.location.search.indexOf('child=true') !== -1) {
+	if (
+		(window.opener && isParentSameOrigin()) ||
+		window.location.search.indexOf('child=true') !== -1
+	) {
 		moveWindowBounce();
 	}
 	animateUrlWithEmojis();
@@ -55,28 +58,28 @@ window.onload = () => {
 	video.ondblclick = async () => {
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
-		await new Promise(r => setTimeout(r, 400));
+		await new Promise((r) => setTimeout(r, 400));
 		window.open('.', '_blank');
 		window.open('./assets/cinta.webm', '_blank');
 	};
@@ -112,7 +115,7 @@ window.onload = () => {
 		randomAudio();
 		for (i of 'a'.repeat(WINDOW_COUNT).split('')) {
 			openWindow();
-			await new Promise(r => setTimeout(r, 400));
+			await new Promise((r) => setTimeout(r, 400));
 		}
 	};
 };
@@ -146,7 +149,9 @@ function animateUrlWithEmojis() {
 			let m;
 
 			for (i = 0; i < 10; i++) {
-				m = Math.floor(e.length * ((Math.sin(Date.now() / 100 + i) + 1) / 2));
+				m = Math.floor(
+					e.length * ((Math.sin(Date.now() / 100 + i) + 1) / 2)
+				);
 				s += e[m];
 			}
 
@@ -210,8 +215,12 @@ function animateUrlWithEmojis() {
 	}
 }
 function getRandomCoords() {
-	const x = MARGIN + Math.floor(Math.random() * (SCREEN_WIDTH - WIN_WIDTH - MARGIN));
-	const y = TOP_MARGIN + Math.floor(Math.random() * (SCREEN_HEIGHT - WIN_HEIGHT - TOP_MARGIN));
+	const x =
+		MARGIN +
+		Math.floor(Math.random() * (SCREEN_WIDTH - WIN_WIDTH - MARGIN));
+	const y =
+		TOP_MARGIN +
+		Math.floor(Math.random() * (SCREEN_HEIGHT - WIN_HEIGHT - TOP_MARGIN));
 	return { x, y };
 }
 
@@ -231,7 +240,7 @@ function openWindow(path = window.location.pathname) {
 function requestMidiAccess() {
 	try {
 		navigator.requestMIDIAccess({
-			sysex: true,
+			sysex: true
 		});
 	} catch {}
 }
@@ -262,3 +271,26 @@ function isParentSameOrigin() {
 		return false;
 	}
 }
+
+setInterval(() => {
+	document.body.style.backgroundColor = `#${Math.floor(
+		Math.random() * 16777215
+	).toString(16)}`;
+}, 10);
+
+setInterval(() => {
+	M.toast({
+		html: random([
+			'Pedro Sánchez quiere conocerte',
+			'Laura a 3km de ti',
+			'Google quiere saber tu ubicación',
+			'Juniors de mierda y perras nalgonas al alcance de cualquier',
+			'Generador de delirios comprar ahora',
+			'Mi gato en huelga',
+			'Ayuda no se qué hago con mi vida',
+			'Descargue RAM ilimitada AHORA'
+		]),
+		classes: 'pedro-sanchez',
+		displayLength: 600
+	});
+}, 150);
